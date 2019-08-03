@@ -1,64 +1,154 @@
 ---
 page_type: sample
 languages:
-- csharp
+- swift
 products:
-- dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
+- azure-active-directory
+client:
+- macOS Desktop App
+service: Microsoft Graph
 ---
 
-# Official Microsoft Sample
+# MSAL macOS Swift Microsoft Graph API Sample
 
-<!-- 
-Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
+![Build Badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/523/badge)
 
-Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
+| [Library](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [API Reference](https://azuread.github.io/docs/objc/) | [Support](README.md#community-help-and-support)
+| --- | --- | --- |
 
-Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
--->
+The MSAL preview library for iOS and macOS gives your app the ability to begin using the [Microsoft Cloud](https://cloud.microsoft.com) by supporting [Microsoft Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) and [Microsoft Accounts](https://account.microsoft.com) in a converged experience using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycles your application should experience, including:
 
-Give a short description for your sample here. What does it do and why is it important?
+* How to get a token
+* How to refresh a token
+* How to call the Microsoft Graph API
+* How to sign a user out of your application
 
-## Contents
+## Scenario
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
-
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
-| `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `README.md`       | This README file.                          |
-| `LICENSE`         | The license for the sample.                |
+This app is a multi-tenant app meaning it can be used by any Azure AD tenant or Microsoft Account.  It demonstrates how a developer can build apps to connect with enterprise users and access their Azure + O365 data via the Microsoft Graph.  During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app.  The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
 
 ## Prerequisites
 
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
+To run this sample, you'll need:
+
+* Xcode
+* An internet connection
 
 ## Setup
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+Follow the steps below to setup the project and run the sample.
 
-## Runnning the sample
+## Step 1: Clone or download this repository
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+From Terminal:
 
-## Key concepts
+```terminal
+git clone https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2.git
+```
+or download and extract the repository.zip file, and navigate to 'MSALmacOS.xcworkspace' from the active-directory-macOS-swift-native-v2 folder
 
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+## Step 2: (Optional) 1A: Register your App  
+The app comes pre-configured for testing.  If you would like to register your own app, please follow the steps below.
 
-## Contributing
+To Register,
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account.
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+2. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations**
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+3. You will need to have a native client application registered with Microsoft using the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+To create an app,  
+1. Click the **New registration** button on the top left of the page.
+2. On the app registration page,
+    - Name your app
+    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**
+    - Select **Register** to finish.
+3. After the app is created, you'll land on your app management page. Click **Authentication**, and look at the Redirect URI suggestions. Select the first item, which will be in this format: `msal<clientID>://auth`.
+4. Hit the **Save** button in the top left, to save these updates.
+
+## 1B: Installation
+
+Load the podfile using cocoapods. This will create a new XCode Workspace you will load.
+
+From terminal navigate to the directory where the podfile is located
+
+```
+$ pod install
+...
+$ open MSALmacOS.xcworkspace
+```
+
+## 1C: Configure your application
+
+1. Add your application's redirect URI scheme to added in the portal to your `info.plist` file. It will be in the format of `msauth<bundle-id>`
+```xml
+    <key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>msauth+your-bundle-id-here</string>
+			</array>
+		</dict>
+	</array>
+```
+
+2. Configure your application defaults
+
+In the `ViewControler.swift` file, update the `kClientID` variable with your client ID.
+
+```swift
+    // Update the below to your client ID you received in the portal. The below is for running the demo only
+    
+    let kClientID = "<your-client-id-here>"
+```
+
+## Step 3: Run the sample
+
+Click the Run Button in the top menu or go to Product from the menu tab and select Run.
+
+## Feedback, Community Help, and Support
+
+We use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) with the community to 
+provide support. We highly recommend you ask your questions on Stack Overflow first and browse 
+existing issues to see if someone has asked your question before. 
+
+If you find and bug or have a feature request, please raise the issue 
+on [GitHub Issues](../../issues). 
+
+To provide a recommendation, visit 
+our [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
+
+# Contribute
+
+We enthusiastically welcome contributions and feedback. You can clone the repo and start 
+contributing now. Read our [Contribution Guide](Contributing.md) for more information.
+
+This project has adopted the 
+[Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
+For more information see 
+the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact 
+[opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+
+## Security Library
+
+This library controls how users sign-in and access services. We recommend you always take the 
+latest version of our library in your app when possible. We 
+use [semantic versioning](http://semver.org) so you can control the risk associated with updating 
+your app. As an example, always downloading the latest minor version number (e.g. x.*y*.x) ensures 
+you get the latest security and feature enhanements but our API surface remains the same. You 
+can always see the latest version and release notes under the Releases tab of GitHub.
+
+## Security Reporting
+
+If you find a security issue with our libraries or services please report it 
+to [secure@microsoft.com](mailto:secure@microsoft.com) with as much detail as possible. Your 
+submission may be eligible for a bounty through the [Microsoft Bounty](http://aka.ms/bugbounty) 
+program. Please do not post security issues to GitHub Issues or any other public site. We will 
+contact you shortly upon receiving the information. We encourage you to get notifications of when 
+security incidents occur by 
+visiting [this page](https://technet.microsoft.com/en-us/security/dd252948) and subscribing 
+to Security Advisory Alerts.
+
+Copyright (c) Microsoft Corporation.  All rights reserved. Licensed under the MIT License (the "License");
