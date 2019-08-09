@@ -12,8 +12,6 @@
 		DF7F84BF22EA772F0013BA63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F84BE22EA772F0013BA63 /* ViewController.swift */; };
 		DF7F84C122EA77300013BA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7F84C022EA77300013BA63 /* Assets.xcassets */; };
 		DF7F84C422EA77300013BA63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7F84C222EA77300013BA63 /* Main.storyboard */; };
-		DF7F84D022EA77310013BA63 /* MSALMacOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F84CF22EA77310013BA63 /* MSALMacOSTests.swift */; };
-		DF7F84DB22EA77310013BA63 /* MSALMacOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F84DA22EA77310013BA63 /* MSALMacOSUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +42,7 @@
 		DF7F84C522EA77300013BA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF7F84C622EA77300013BA63 /* MSALMacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MSALMacOS.entitlements; sourceTree = "<group>"; };
 		DF7F84CB22EA77310013BA63 /* MSALMacOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSALMacOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF7F84CF22EA77310013BA63 /* MSALMacOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALMacOSTests.swift; sourceTree = "<group>"; };
-		DF7F84D122EA77310013BA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF7F84D622EA77310013BA63 /* MSALMacOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSALMacOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF7F84DA22EA77310013BA63 /* MSALMacOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALMacOSUITests.swift; sourceTree = "<group>"; };
-		DF7F84DC22EA77310013BA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F823B6F5F9FD8ECE38A6EF5F /* Pods_MSALMacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSALMacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,8 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				DF7F84BB22EA772F0013BA63 /* MSALMacOS */,
-				DF7F84CE22EA77310013BA63 /* MSALMacOSTests */,
-				DF7F84D922EA77310013BA63 /* MSALMacOSUITests */,
 				DF7F84BA22EA772F0013BA63 /* Products */,
 				1B35B523E78C9A12231B12B9 /* Pods */,
 				C59A55362EC75B6788638529 /* Frameworks */,
@@ -128,24 +120,6 @@
 				DF7F84C622EA77300013BA63 /* MSALMacOS.entitlements */,
 			);
 			path = MSALMacOS;
-			sourceTree = "<group>";
-		};
-		DF7F84CE22EA77310013BA63 /* MSALMacOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				DF7F84CF22EA77310013BA63 /* MSALMacOSTests.swift */,
-				DF7F84D122EA77310013BA63 /* Info.plist */,
-			);
-			path = MSALMacOSTests;
-			sourceTree = "<group>";
-		};
-		DF7F84D922EA77310013BA63 /* MSALMacOSUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DF7F84DA22EA77310013BA63 /* MSALMacOSUITests.swift */,
-				DF7F84DC22EA77310013BA63 /* Info.plist */,
-			);
-			path = MSALMacOSUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +194,7 @@
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -336,7 +310,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF7F84D022EA77310013BA63 /* MSALMacOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF7F84DB22EA77310013BA63 /* MSALMacOSUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
