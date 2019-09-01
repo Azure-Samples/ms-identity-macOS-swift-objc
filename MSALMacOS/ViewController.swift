@@ -40,6 +40,7 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
+    var webViewParamaters : MSALWebviewParameters?
     
     @IBOutlet weak var callGraphButton: NSButton!
     @IBOutlet var loggingText: NSTextView!
@@ -76,8 +77,9 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     func acquireTokenInteractively() {
         
         guard let applicationContext = self.applicationContext else { return }
+        guard let webViewParameters = self.webViewParamaters else { return }
         
-        let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
+        let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)
         
         applicationContext.acquireToken(with: parameters) { (result, error) in
             
@@ -219,6 +221,8 @@ extension ViewController {
         
         let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
         self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
+        self.webViewParamaters = MSALWebviewParameters()
+        self.webViewParamaters?.webviewType = .wkWebView
     }
 }
 
