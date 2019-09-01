@@ -33,12 +33,10 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     // Update the below to your client ID you received in the portal. The below is for running the demo only
     let kClientID = "2a858956-70de-42b9-b5db-d566eb1fb820"
     
-    
     // Additional variables for Auth and Graph API
     let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
     let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
-    let kAuthority = "https://login.microsoftonline.com/organizations"
-    
+    let kAuthority = "https://login.microsoftonline.com/common"
     
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
@@ -48,20 +46,19 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     @IBOutlet weak var signOutButton: NSButton!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         do {
             try self.initMSAL()
         } catch let error {
-            self.loggingText.string = "Unable to create Application Context \(error)"
+            self.updateLogging(text: "Unable to create Application Context \(error)")
         }
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        signOutButton.isEnabled = !self.accessToken.isEmpty
+        self.updateSignOutButton(enabled: !self.accessToken.isEmpty)
     }
     
     @IBAction func callGraph(_ sender: Any) {
@@ -100,17 +97,6 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
             self.updateLogging(text: "Access token is \(self.accessToken)")
             self.updateSignOutButton(enabled: true)
             self.getContentWithToken()
-        }
-    }
-    
-    func updateLogging(text : String) {
-        
-        if Thread.isMainThread {
-            self.loggingText.string = text
-        } else {
-            DispatchQueue.main.async {
-                self.loggingText.string = text
-            }
         }
     }
     
@@ -225,7 +211,7 @@ extension ViewController {
     func initMSAL() throws {
         
         guard let authorityURL = URL(string: kAuthority) else {
-            self.loggingText.string = "Unable to create authority URL"
+            self.updateLogging(text: "Unable to create authority URL")
             return
         }
         
@@ -275,8 +261,8 @@ extension ViewController {
              */
             
             try applicationContext.remove(account)
-            self.loggingText.string = ""
-            self.signOutButton.isEnabled = false
+            self.updateLogging(text: "")
+            self.updateSignOutButton(enabled: false)
             self.accessToken = ""
             
         } catch let error as NSError {
@@ -292,6 +278,17 @@ extension ViewController {
         } else {
             DispatchQueue.main.async {
                 self.signOutButton.isEnabled = enabled
+            }
+        }
+    }
+    
+    func updateLogging(text : String) {
+        
+        if Thread.isMainThread {
+            self.loggingText.string = text
+        } else {
+            DispatchQueue.main.async {
+                self.loggingText.string = text
             }
         }
     }
