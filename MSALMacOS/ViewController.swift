@@ -42,13 +42,19 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     var applicationContext : MSALPublicClientApplication?
     var webViewParamaters : MSALWebviewParameters?
     
-    @IBOutlet weak var callGraphButton: NSButton!
-    @IBOutlet var loggingText: NSTextView!
-    @IBOutlet weak var signOutButton: NSButton!
+    var callGraphButton: NSButton!
+    var loggingText: NSTextView!
+    var signOutButton: NSButton!
     
+    /**
+     Setup public client application in viewDidLoad
+     */
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        initUI()
         
         do {
             try self.initMSAL()
@@ -61,8 +67,45 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
         super.viewWillAppear()
         self.updateSignOutButton(enabled: !self.accessToken.isEmpty)
     }
+}
+
+extension ViewController {
     
-    @IBAction func callGraph(_ sender: Any) {
+    /**
+     
+     Initialize a MSALPublicClientApplication with a given clientID and authority
+     
+     - clientId:            The clientID of your application, you should get this from the app portal.
+     - redirectUri:         A redirect URI of your application, you should get this from the app portal.
+     If nil, MSAL will create one by default. i.e./ msauth.<bundleID>://auth
+     - authority:           A URL indicating a directory that MSAL can use to obtain tokens. In Azure AD
+     it is of the form https://<instance/<tenant>, where <instance> is the
+     directory host (e.g. https://login.microsoftonline.com) and <tenant> is a
+     identifier within the directory itself (e.g. a domain associated to the
+     tenant, such as contoso.onmicrosoft.com, or the GUID representing the
+     TenantID property of the directory)
+     - error                The error that occurred creating the application object, if any, if you're
+     not interested in the specific error pass in nil.
+     */
+    func initMSAL() throws {
+        
+        guard let authorityURL = URL(string: kAuthority) else {
+            self.updateLogging(text: "Unable to create authority URL")
+            return
+        }
+        
+        let authority = try MSALAADAuthority(url: authorityURL)
+        
+        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
+        self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
+        self.webViewParamaters = MSALWebviewParameters()
+        self.webViewParamaters?.webviewType = .wkWebView
+    }
+}
+
+extension ViewController {
+    
+    @IBAction func callGraphAPI(_ sender: Any) {
         
         guard let currentAccount = self.currentAccount() else {
             // We check to see if we have a current logged in account.
@@ -190,43 +233,11 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
             
             }.resume()
     }
+    
 }
 
 extension ViewController {
     
-    /**
-     
-     Initialize a MSALPublicClientApplication with a given clientID and authority
-     
-     - clientId:            The clientID of your application, you should get this from the app portal.
-     - redirectUri:         A redirect URI of your application, you should get this from the app portal.
-     If nil, MSAL will create one by default. i.e./ msauth.<bundleID>://auth
-     - authority:           A URL indicating a directory that MSAL can use to obtain tokens. In Azure AD
-     it is of the form https://<instance/<tenant>, where <instance> is the
-     directory host (e.g. https://login.microsoftonline.com) and <tenant> is a
-     identifier within the directory itself (e.g. a domain associated to the
-     tenant, such as contoso.onmicrosoft.com, or the GUID representing the
-     TenantID property of the directory)
-     - error                The error that occurred creating the application object, if any, if you're
-     not interested in the specific error pass in nil.
-     */
-    func initMSAL() throws {
-        
-        guard let authorityURL = URL(string: kAuthority) else {
-            self.updateLogging(text: "Unable to create authority URL")
-            return
-        }
-        
-        let authority = try MSALAADAuthority(url: authorityURL)
-        
-        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
-        self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-        self.webViewParamaters = MSALWebviewParameters()
-        self.webViewParamaters?.webviewType = .wkWebView
-    }
-}
-
-extension ViewController {
     func currentAccount() -> MSALAccount? {
         
         guard let applicationContext = self.applicationContext else { return nil }
@@ -274,6 +285,51 @@ extension ViewController {
             self.updateLogging(text: "Received error signing account out: \(error)")
         }
         
+    }
+}
+
+extension ViewController {
+    
+    func initUI() {
+        // Add call Graph button
+        callGraphButton  = NSButton()
+        callGraphButton.translatesAutoresizingMaskIntoConstraints = false
+        callGraphButton.title = "Call Microsoft Graph API"
+        callGraphButton.target = self
+        callGraphButton.action = #selector(callGraphAPI(_:))
+        callGraphButton.bezelStyle = .rounded
+        self.view.addSubview(callGraphButton)
+        
+        callGraphButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        callGraphButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 30.0).isActive = true
+        callGraphButton.heightAnchor.constraint(equalToConstant: 34.0).isActive = true
+        
+        // Add sign out button
+        signOutButton = NSButton()
+        signOutButton.translatesAutoresizingMaskIntoConstraints = false
+        signOutButton.title = "Sign Out"
+        signOutButton.target = self
+        signOutButton.action = #selector(signOut(_:))
+        signOutButton.bezelStyle = .texturedRounded
+        self.view.addSubview(signOutButton)
+        
+        signOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        signOutButton.topAnchor.constraint(equalTo: callGraphButton.bottomAnchor, constant: 10.0).isActive = true
+        signOutButton.heightAnchor.constraint(equalToConstant: 34.0).isActive = true
+        signOutButton.isEnabled = false
+        
+        // Add logging textfield
+        loggingText = NSTextView()
+        loggingText.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(loggingText)
+        
+        loggingText.topAnchor.constraint(equalTo: signOutButton.bottomAnchor, constant: 10.0).isActive = true
+        loggingText.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 10.0).isActive = true
+        loggingText.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -10.0).isActive = true
+        loggingText.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10.0).isActive = true
+        loggingText.widthAnchor.constraint(equalToConstant: 500.0).isActive = true
+        loggingText.heightAnchor.constraint(equalToConstant: 300.0).isActive = true
     }
     
     func updateSignOutButton(enabled : Bool) {
