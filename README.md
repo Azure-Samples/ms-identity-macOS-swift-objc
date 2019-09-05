@@ -16,12 +16,12 @@ service: Microsoft Graph
 | [Library](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [API Reference](https://azuread.github.io/docs/objc/) | [Support](README.md#community-help-and-support)
 | --- | --- | --- |
 
-The MSAL preview library for iOS and macOS gives your app the ability to begin using the [Microsoft Cloud](https://cloud.microsoft.com) by supporting [Microsoft Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) and [Microsoft Accounts](https://account.microsoft.com) in a converged experience using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycles your application should experience, including:
+The MSAL for macOS library gives your app the ability to begin using the [Microsoft identity platform](https://aka.ms/aaddev) by supporting [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) and [Microsoft Accounts](https://account.microsoft.com/) in a converged experience using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycles your application should experience, including:
 
-* How to get a token
-* How to refresh a token
-* How to call the Microsoft Graph API
-* How to sign a user out of your application
+- How to get a token
+- How to refresh a token
+- How to call the Microsoft Graph API
+- How to sign a user out of your application
 
 ## Scenario
 
@@ -47,6 +47,18 @@ git clone https://github.com/Azure-Samples/active-directory-macOS-swift-native-v
 ```
 or download and extract the repository.zip file, and navigate to 'MSALmacOS.xcworkspace' from the active-directory-macOS-swift-native-v2 folder
 
+## 1B: Installation
+
+Load the podfile using cocoapods. This will create a new XCode Workspace you will load.
+
+From terminal navigate to the directory where the podfile is located
+
+```
+$ pod install
+...
+$ open MSALmacOS.xcworkspace
+```
+
 ## Step 2: (Optional) 1A: Register your App  
 The app comes pre-configured for testing.  If you would like to register your own app, please follow the steps below.
 
@@ -63,37 +75,12 @@ To create an app,
     - Name your app
     - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**
     - Select **Register** to finish.
-3. After the app is created, you'll land on your app management page. Click **Authentication**, and look at the Redirect URI suggestions. Select the first item, which will be in this format: `msal<clientID>://auth`.
+3. After the app is created, you'll land on your app management page. Click **Authentication**, and add new Redirect URI with type **Public client (mobile & desktop)**. Enter redirect URI in format: `msauth.<app.bundle.id>://auth`. Replace <app.bundle.id> with the **Bundle Identifier** for your application. 
 4. Hit the **Save** button in the top left, to save these updates.
 
-## 1B: Installation
+## 1B: Configure your application
 
-Load the podfile using cocoapods. This will create a new XCode Workspace you will load.
-
-From terminal navigate to the directory where the podfile is located
-
-```
-$ pod install
-...
-$ open MSALmacOS.xcworkspace
-```
-
-## 1C: Configure your application
-
-1. Add your application's redirect URI scheme to added in the portal to your `info.plist` file. It will be in the format of `msauth<bundle-id>`
-```xml
-    <key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>msauth+your-bundle-id-here</string>
-			</array>
-		</dict>
-	</array>
-```
-
-2. Configure your application defaults
+1. Configure your application defaults
 
 In the `ViewControler.swift` file, update the `kClientID` variable with your client ID.
 
