@@ -38,7 +38,9 @@ To run this sample, you'll need:
 
 Follow the steps below to setup the project and run the sample.
 
-## Step 1: Clone or download this repository
+## Step 1
+
+## 1A: Clone or download this repository
 
 From Terminal:
 
@@ -59,7 +61,16 @@ $ pod install
 $ open MSALmacOS.xcworkspace
 ```
 
+## 1C: Configure sample
+
+In the `ViewControler.swift` file, update the `kClientID` variable with your 2a858956-70de-42b9-b5db-d566eb1fb820. This is the default value for the sample. You can skip this step if you follow instructions in the step 2.
+
+```swift
+let kClientID = "2a858956-70de-42b9-b5db-d566eb1fb820"
+```
+
 ## Step 2: (Optional) 1A: Register your App  
+
 The app comes pre-configured for testing.  If you would like to register your own app, please follow the steps below.
 
 To Register,
@@ -85,9 +96,9 @@ To create an app,
 In the `ViewControler.swift` file, update the `kClientID` variable with your client ID.
 
 ```swift
-    // Update the below to your client ID you received in the portal. The below is for running the demo only
+// Update the below to your client ID you received in the portal. The below is for running the demo only
     
-    let kClientID = "<your-client-id-here>"
+let kClientID = "Enter_the_Application_Id_here"
 ```
 
 ## Step 3: Run the sample
