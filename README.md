@@ -45,9 +45,9 @@ Follow the steps below to setup the project and run the sample.
 From Terminal:
 
 ```terminal
-git clone https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2.git
+git clone https://github.com/Azure-Samples/ms-identity-macOS-swift-objc.git
 ```
-or download and extract the repository.zip file, and navigate to 'MSALmacOS.xcworkspace' from the active-directory-macOS-swift-native-v2 folder
+or download and extract the repository.zip file, and navigate to 'MSALmacOS.xcworkspace' from the ms-identity-macOS-swift-objc folder
 
 ## 1B: Installation
 
@@ -69,7 +69,9 @@ In the `ViewControler.swift` file, update the `kClientID` variable with `2a85895
 let kClientID = "2a858956-70de-42b9-b5db-d566eb1fb820"
 ```
 
-## Step 2: (Optional) 1A: Register your App  
+## Step 2: (Optional) 
+
+## 2A: Register your App  
 
 This app comes pre-configured for testing.  If you would like to register your own app, please follow the steps below.
 
@@ -85,7 +87,7 @@ To Register an app:
 6. Click **Authentication**, and add new Redirect URI with type **Public client (mobile & desktop)**. Enter redirect URI in format: `msauth.<app.bundle.id>://auth`. Replace <app.bundle.id> with the **Bundle Identifier** for your application. 
 7. Hit the **Save** button in the top left, to save these updates.
 
-## 1B: Configure your application
+## 2B: Configure your application
 
 1. Configure your application defaults
 
@@ -112,7 +114,7 @@ To provide a recommendation, visit our [User Voice page](https://feedback.azure.
 
 # Contribute
 
-We enthusiastically welcome contributions and feedback. You can clone the repo and start contributing now. Read our [Contribution Guide](Contributing.md) for more information.
+We enthusiastically welcome contributions and feedback. You can clone the repo and start contributing now. 
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
 
