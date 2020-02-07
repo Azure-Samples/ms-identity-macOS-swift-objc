@@ -99,6 +99,20 @@ In the `ViewControler.swift` file, update the `kClientID` variable with your App
 let kClientID = "Enter_the_Application_Id_here"
 ```
 
+In the `ViewControler.swift` file, update the `kAuthority` variable with your Azure AD and Microsoft Graph endpoints for your national cloud. For global access, use following values:
+
+```objective-c
+let kGraphEndpoint = "https://graph.microsoft.com"
+let kAuthority = "https://login.microsoftonline.com/common"
+```
+
+Other endpoints are documented [here](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the sample with AzureAD Germany, use following:
+
+```objective-c
+let kGraphEndpoint = "https://graph.microsoft.de"
+let kAuthority = "https://login.microsoftonline.de/common"
+```
+
 ## Step 3: Run the sample
 
 1. Click the Run Button in the top menu or go to Product from the menu tab and click Run.
