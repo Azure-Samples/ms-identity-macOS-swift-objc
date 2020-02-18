@@ -32,11 +32,10 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     
     // Update the below to your client ID you received in the portal. The below is for running the demo only
     let kClientID = "2a858956-70de-42b9-b5db-d566eb1fb820"
-    
-    // Additional variables for Auth and Graph API
-    let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
-    let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
+    let kGraphEndpoint = "https://graph.microsoft.com/"
     let kAuthority = "https://login.microsoftonline.com/common"
+    
+    let kScopes: [String] = ["user.read"]
     
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
@@ -206,6 +205,10 @@ extension ViewController {
         }
     }
     
+    func getGraphEndpoint() -> String {
+        return kGraphEndpoint.hasSuffix("/") ? (kGraphEndpoint + "v1.0/me/") : (kGraphEndpoint + "/v1.0/me/");
+    }
+    
     /**
      This will invoke the call to the Microsoft Graph API. It uses the
      built in URLSession to create a connection.
@@ -214,7 +217,8 @@ extension ViewController {
     func getContentWithToken() {
         
         // Specify the Graph API endpoint
-        let url = URL(string: kGraphURI)
+        let graphURI = getGraphEndpoint()
+        let url = URL(string: graphURI)
         var request = URLRequest(url: url!)
         
         // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
