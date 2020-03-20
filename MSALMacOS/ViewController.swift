@@ -45,6 +45,11 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     var loggingText: NSTextView!
     var signOutButton: NSButton!
     
+    var usernameLabel: NSTextField!
+
+    var currentAccount: MSALAccount?
+    var accountProvider: AppAccountProviding?
+    
     /**
      Setup public client application in viewDidLoad
      */
@@ -60,11 +65,18 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
         } catch let error {
             self.updateLogging(text: "Unable to create Application Context \(error)")
         }
+        
+        self.platformViewDidLoadSetup()
+    }
+    
+    func platformViewDidLoadSetup() {
+        self.accountProvider = AppAccountProvider()
     }
     
     override func viewWillAppear() {
+        
         super.viewWillAppear()
-        self.updateSignOutButton(enabled: !self.accessToken.isEmpty)
+        self.loadCurrentAccount()
     }
 }
 
@@ -102,22 +114,25 @@ extension ViewController {
     
     func initWebViewParams() {
         self.webViewParamaters = MSALWebviewParameters()
-        self.webViewParamaters?.webviewType = .wkWebView
     }
 }
 
 extension ViewController {
     
-    @IBAction func callGraphAPI(_ sender: Any) {
+    @objc func callGraphAPI(_ sender: Any) {
         
-        guard let currentAccount = self.currentAccount() else {
-            // We check to see if we have a current logged in account.
-            // If we don't, then we need to sign someone in.
-            acquireTokenInteractively()
-            return
+        self.loadCurrentAccount { (account) in
+            
+            guard let currentAccount = account else {
+                
+                // We check to see if we have a current logged in account.
+                // If we don't, then we need to sign someone in.
+                self.acquireTokenInteractively()
+                return
+            }
+            
+            self.acquireTokenSilently(currentAccount)
         }
-        
-        acquireTokenSilently(currentAccount)
     }
     
     func acquireTokenInteractively() {
@@ -126,6 +141,7 @@ extension ViewController {
         guard let webViewParameters = self.webViewParamaters else { return }
         
         let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)
+        parameters.promptType = .selectAccount
         
         applicationContext.acquireToken(with: parameters) { (result, error) in
             
@@ -143,7 +159,7 @@ extension ViewController {
             
             self.accessToken = result.accessToken
             self.updateLogging(text: "Access token is \(self.accessToken)")
-            self.updateSignOutButton(enabled: true)
+            self.updateCurrentAccount(account: result.account)
             self.getContentWithToken()
         }
     }
@@ -246,34 +262,48 @@ extension ViewController {
 
 extension ViewController {
     
-    func currentAccount() -> MSALAccount? {
+    typealias AccountCompletion = (MSALAccount?) -> Void
+
+    func loadCurrentAccount(completion: AccountCompletion? = nil) {
         
-        guard let applicationContext = self.applicationContext else { return nil }
+        guard let applicationContext = self.applicationContext else { return }
+        guard let accountProvider = self.accountProvider else { return }
         
-        // We retrieve our current account by getting the first account from cache
-        // In multi-account applications, account should be retrieved by home account identifier or username instead
-        
-        do {
+        accountProvider.loadCurrentAccount(app: applicationContext) { (account, error) in
             
-            let cachedAccounts = try applicationContext.allAccounts()
-            
-            if !cachedAccounts.isEmpty {
-                return cachedAccounts.first
+            if let error = error {
+                self.updateLogging(text: "Couldn't query current account with error: \(error)")
+                return
             }
             
-        } catch let error as NSError {
+            if let currentAccount = account {
+                
+                self.updateLogging(text: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
+                
+                self.updateCurrentAccount(account: currentAccount)
+                
+                if let completion = completion {
+                    completion(self.currentAccount)
+                }
+                
+                return
+            }
             
-            self.updateLogging(text: "Didn't find any accounts in cache: \(error)")
+            self.updateLogging(text: "Account signed out. Updating UX")
+            self.accessToken = ""
+            self.updateCurrentAccount(account: nil)
+            
+            if let completion = completion {
+                completion(nil)
+            }
         }
-        
-        return nil
     }
     
-    @IBAction func signOut(_ sender: Any) {
+    @objc func signOut(_ sender: Any) {
         
         guard let applicationContext = self.applicationContext else { return }
         
-        guard let account = self.currentAccount() else { return }
+        guard let account = self.currentAccount else { return }
         
         do {
             
@@ -283,22 +313,39 @@ extension ViewController {
              - account:    The account to remove from the cache
              */
             
-            try applicationContext.remove(account)
-            self.updateLogging(text: "")
-            self.updateSignOutButton(enabled: false)
-            self.accessToken = ""
+            let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
+            signoutParameters.signoutFromBrowser = true
             
-        } catch let error as NSError {
+            applicationContext.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
+                
+                if let error = error {
+                    self.updateLogging(text: "Couldn't sign out account with error: \(error)")
+                    return
+                }
+                
+                self.updateLogging(text: "Sign out completed successfully")
+                self.accessToken = ""
+                self.updateCurrentAccount(account: nil)
+            })
             
-            self.updateLogging(text: "Received error signing account out: \(error)")
         }
-        
     }
 }
 
 extension ViewController {
     
     func initUI() {
+        
+        usernameLabel = NSTextField()
+        usernameLabel.translatesAutoresizingMaskIntoConstraints = false
+        usernameLabel.stringValue = ""
+        usernameLabel.isEditable = false
+        usernameLabel.isBezeled = false
+        self.view.addSubview(usernameLabel)
+        
+        usernameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30.0).isActive = true
+        usernameLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10.0).isActive = true
+        
         // Add call Graph button
         callGraphButton  = NSButton()
         callGraphButton.translatesAutoresizingMaskIntoConstraints = false
@@ -309,7 +356,7 @@ extension ViewController {
         self.view.addSubview(callGraphButton)
         
         callGraphButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        callGraphButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 30.0).isActive = true
+        callGraphButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50.0).isActive = true
         callGraphButton.heightAnchor.constraint(equalToConstant: 34.0).isActive = true
         
         // Add sign out button
@@ -340,6 +387,17 @@ extension ViewController {
         loggingText.heightAnchor.constraint(equalToConstant: 300.0).isActive = true
     }
     
+    func updateLogging(text : String) {
+        
+        if Thread.isMainThread {
+            self.loggingText.string = text
+        } else {
+            DispatchQueue.main.async {
+                self.loggingText.string = text
+            }
+        }
+    }
+    
     func updateSignOutButton(enabled : Bool) {
         if Thread.isMainThread {
             self.signOutButton.isEnabled = enabled
@@ -350,15 +408,22 @@ extension ViewController {
         }
     }
     
-    func updateLogging(text : String) {
-        
-        if Thread.isMainThread {
-            self.loggingText.string = text
-        } else {
-            DispatchQueue.main.async {
-                self.loggingText.string = text
-            }
+     func updateAccountLabel() {
+
+         guard let currentAccount = self.currentAccount else {
+            self.usernameLabel.stringValue = "Signed out"
+            return
         }
+
+        self.usernameLabel.stringValue = currentAccount.username ?? ""
+        self.usernameLabel.sizeToFit()
+     }
+
+     func updateCurrentAccount(account: MSALAccount?) {
+        self.currentAccount = account
+        UserDefaults.standard.setValue(account?.identifier, forKey: "current_account")
+        self.updateAccountLabel()
+        self.updateSignOutButton(enabled: account != nil)
     }
 }
 
