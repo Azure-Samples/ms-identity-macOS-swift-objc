@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8BB991C88518EF3991A40197 /* Pods_MSALMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F823B6F5F9FD8ECE38A6EF5F /* Pods_MSALMacOS.framework */; };
-		B2E2B0B9242494750059F8B9 /* AppAccountProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B0B7242494750059F8B9 /* AppAccountProviding.swift */; };
-		B2E2B0BA242494750059F8B9 /* AppAccountProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E2B0B8242494750059F8B9 /* AppAccountProvider.swift */; };
 		DF7F84BD22EA772F0013BA63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F84BC22EA772F0013BA63 /* AppDelegate.swift */; };
 		DF7F84BF22EA772F0013BA63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F84BE22EA772F0013BA63 /* ViewController.swift */; };
 		DF7F84C122EA77300013BA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7F84C022EA77300013BA63 /* Assets.xcassets */; };
@@ -36,8 +34,6 @@
 /* Begin PBXFileReference section */
 		0DB7DCF21505D715D6C44593 /* Pods-MSALMacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSALMacOS.release.xcconfig"; path = "Target Support Files/Pods-MSALMacOS/Pods-MSALMacOS.release.xcconfig"; sourceTree = "<group>"; };
 		2A8C162F9C6809D06DFFD7D9 /* Pods-MSALMacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSALMacOS.debug.xcconfig"; path = "Target Support Files/Pods-MSALMacOS/Pods-MSALMacOS.debug.xcconfig"; sourceTree = "<group>"; };
-		B2E2B0B7242494750059F8B9 /* AppAccountProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAccountProviding.swift; sourceTree = "<group>"; };
-		B2E2B0B8242494750059F8B9 /* AppAccountProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAccountProvider.swift; sourceTree = "<group>"; };
 		DF7F84B922EA772F0013BA63 /* MSALMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSALMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7F84BC22EA772F0013BA63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF7F84BE22EA772F0013BA63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,8 +118,6 @@
 				DF7F84C222EA77300013BA63 /* Main.storyboard */,
 				DF7F84C522EA77300013BA63 /* Info.plist */,
 				DF7F84C622EA77300013BA63 /* MSALMacOS.entitlements */,
-				B2E2B0B8242494750059F8B9 /* AppAccountProvider.swift */,
-				B2E2B0B7242494750059F8B9 /* AppAccountProviding.swift */,
 			);
 			path = MSALMacOS;
 			sourceTree = "<group>";
@@ -307,9 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E2B0BA242494750059F8B9 /* AppAccountProvider.swift in Sources */,
 				DF7F84BF22EA772F0013BA63 /* ViewController.swift in Sources */,
-				B2E2B0B9242494750059F8B9 /* AppAccountProviding.swift in Sources */,
 				DF7F84BD22EA772F0013BA63 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

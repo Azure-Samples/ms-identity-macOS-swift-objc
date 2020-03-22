@@ -48,7 +48,6 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     var usernameLabel: NSTextField!
 
     var currentAccount: MSALAccount?
-    var accountProvider: AppAccountProviding?
     
     /**
      Setup public client application in viewDidLoad
@@ -66,12 +65,11 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
             self.updateLogging(text: "Unable to create Application Context \(error)")
         }
         
+        self.loadCurrentAccount()
         self.platformViewDidLoadSetup()
     }
     
-    func platformViewDidLoadSetup() {
-        self.accountProvider = AppAccountProvider()
-    }
+    func platformViewDidLoadSetup() {}
     
     override func viewWillAppear() {
         
@@ -267,16 +265,21 @@ extension ViewController {
     func loadCurrentAccount(completion: AccountCompletion? = nil) {
         
         guard let applicationContext = self.applicationContext else { return }
-        guard let accountProvider = self.accountProvider else { return }
         
-        accountProvider.loadCurrentAccount(app: applicationContext) { (account, error) in
+        let msalParameters = MSALParameters()
+        msalParameters.completionBlockQueue = DispatchQueue.main
+                
+        // Note that this sample showcases an app that signs in a single account at a time
+        // If you're building a more complex app that signs in multiple accounts at the same time, you'll need to use a different account retrieval API that specifies account identifier
+        // For example, see "accountsFromDeviceForParameters:completionBlock:" - https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALPublicClientApplication.html#/c:objc(cs)MSALPublicClientApplication(im)accountsFromDeviceForParameters:completionBlock:
+        applicationContext.getCurrentAccount(with: msalParameters, completionBlock: { (currentAccount, previousAccount, error) in
             
             if let error = error {
                 self.updateLogging(text: "Couldn't query current account with error: \(error)")
                 return
             }
             
-            if let currentAccount = account {
+            if let currentAccount = currentAccount {
                 
                 self.updateLogging(text: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
                 
@@ -296,7 +299,7 @@ extension ViewController {
             if let completion = completion {
                 completion(nil)
             }
-        }
+        })
     }
     
     @objc func signOut(_ sender: Any) {
