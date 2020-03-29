@@ -1,6 +1,6 @@
 use_frameworks!
  
 target 'MSALMacOS' do
-  pod 'MSAL'
+  pod 'MSAL', '~> 1.1.0'
 end
 
