@@ -9,7 +9,7 @@
 		"x-ms-name": "macOS-swift",
 		"x-ms-version": "2.0",
 		"replyUrlsWithType": [{
-			"url": "msal{AppId}://auth",
+			"url": "msauth.<bundleId>://auth",
 			"type": "InstalledClient"
 		}],
 		"requiredResourceAccess": [{
