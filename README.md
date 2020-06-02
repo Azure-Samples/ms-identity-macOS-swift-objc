@@ -86,37 +86,44 @@ To Register an app:
 5. After the app is created, you'll land on your app management page. Take note of the **Application (client) ID** as this would be needed for the step 1B below.
 6. Click **Authentication**, and add new Redirect URI with type **Public client (mobile & desktop)**. Enter redirect URI in format: `msauth.<app.bundle.id>://auth`. Replace <app.bundle.id> with the **Bundle Identifier** for your application. 
 7. Hit the **Save** button in the top left, to save these updates.
-
-## 2B: Configure your application
-
-1. Configure your application defaults
-
-In the `ViewControler.swift` file, update the `kClientID` variable with your Application (client) ID.
-
-```swift
-// Update the below to your client ID you received in the portal. The below is for running the demo only
-    
-let kClientID = "Enter_the_Application_Id_here"
-```
-
-In the `ViewControler.swift` file, update the `kAuthority` variable with your Azure AD and Microsoft Graph endpoints for your national cloud. For global access, use following values:
-
-```objective-c
-let kGraphEndpoint = "https://graph.microsoft.com/"
-let kAuthority = "https://login.microsoftonline.com/common"
-```
-
-Other endpoints are documented [here](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the sample with AzureAD Germany, use following:
-
-```objective-c
-let kGraphEndpoint = "https://graph.microsoft.de/"
-let kAuthority = "https://login.microsoftonline.de/common"
-```
+8. Click **Make these changes for me** and then download the code sample for macOS
 
 ## Step 3: Run the sample
 
 1. Click the Run Button in the top menu or go to Product from the menu tab and click Run.
 2. Once the sample app launches, click on the 'Call Microsoft Graph API' button to go through the sign in flow and see the results from Microsoft Graph.
+
+## How to add MSAL libarary into your existing Xcode project
+
+## Step 1: Configure your application defaults
+
+In your app, add the `client` variable with your Application (client) ID.
+
+```objective-c
+// For example, you can declare a client id in this way. Below ID is just an sample.
+    	
+let clientID = "66855f8a-60cd-445e-a9bb-8cd8eadbd3fa"
+```
+
+In your app, add the `authority` variable with your Azure AD and Microsoft Graph endpoints for your national cloud. For global access, use following values:
+
+```objective-c
+let graphEndpoint = "https://graph.microsoft.com/"
+let authority = "https://login.microsoftonline.com/common"
+```
+
+Other endpoints are documented [here](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the sample with AzureAD Germany, use following:
+
+```objective-c
+let graphEndpoint = "https://graph.microsoft.de/"
+let authority = "https://login.microsoftonline.de/common"
+```
+
+## Step 2: Configure Xcode project settings
+
+Add a new keychain group to your project **Signing & Capabilities**. The keychain group should be `com.microsoft.adalcache` on iOS and `com.microsoft.identity.universalstorage` on macOS.
+
+![Xcode UI displaying how the the keychain group should be set up](./images/iosintro-keychainShare.png)
 
 ## Feedback, Community Help, and Support
 
