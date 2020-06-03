@@ -27,7 +27,8 @@
 					"appId": "2a858956-70de-42b9-b5db-d566eb1fb820",
 					"authorityEndpointHost": "https://login.microsoftonline.com/",
 					"tenantId": "common",
-					"msgraphEndpointHost": "https://graph.microsoft.com/"
+					"msgraphEndpointHost": "https://graph.microsoft.com/",
+					"redirectUri": "msauth.com.microsoft.identitysample.MSALMacOS://auth"
 				}
 			}
 		]
