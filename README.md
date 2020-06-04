@@ -86,7 +86,7 @@ To Register an app:
 5. After the app is created, you'll land on your app management page. Take note of the **Application (client) ID** as this would be needed for the step 1B below.
 6. Click **Authentication**, and add new Redirect URI with type **Public client (mobile & desktop)**. Enter redirect URI in format: `msauth.<app.bundle.id>://auth`. Replace <app.bundle.id> with the **Bundle Identifier** for your application. 
 7. Hit the **Save** button in the top left, to save these updates.
-8. Click **Make these changes for me** and then download the code sample for macOS
+8. Click **Make this change for me** and then download the code sample for macOS
 
 ## Step 3: Run the sample
 
