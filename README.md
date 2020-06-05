@@ -95,7 +95,23 @@ To Register an app:
 
 ## How to add MSAL libarary into your existing Xcode project
 
-## Step 1: Configure your application defaults
+## Step 1: Configure your application Info.plist
+
+Add URI scheme in the  `Info.plist`. Redirect URI scheme follows the format `msauth.[app_bundle_id]`. Make sure to substitue [app_bundle_id] with the **Bundle Identifier** for your application.
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+  <dict>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>msauth.[app_bundle_id]</string>
+    </array>
+  </dict>
+</array>
+```
+
+## Step 2: Configure your application defaults
 
 In your app, add the `client` variable with your Application (client) ID.
 
@@ -119,7 +135,7 @@ let graphEndpoint = "https://graph.microsoft.de/"
 let authority = "https://login.microsoftonline.de/common"
 ```
 
-## Step 2: Configure Xcode project settings
+## Step 3: Configure Xcode project settings
 
 Add a new keychain group to your project **Signing & Capabilities**. The keychain group should be `com.microsoft.adalcache` on iOS and `com.microsoft.identity.universalstorage` on macOS.
 
