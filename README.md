@@ -16,7 +16,7 @@ service: Microsoft Graph
 | [Library](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [API Reference](https://azuread.github.io/docs/objc/) | [Support](README.md#feedback-community-help-and-support)
 | --- | --- | --- |
 
-The MSAL for macOS library gives your app the ability to begin using the [Microsoft identity platform](https://aka.ms/aaddev) by supporting [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) and [Microsoft Accounts](https://account.microsoft.com/) in a converged experience using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycles your application should experience, including:
+The MSAL for macOS library gives your app the ability to begin using the [Microsoft identity platform](https://aka.ms/aaddev) by supporting [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) and [Microsoft Accounts](https://account.microsoft.com/) in a converged experience using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycle your application should experience, including:
 
 - How to get a token
 - How to refresh a token
@@ -86,37 +86,60 @@ To Register an app:
 5. After the app is created, you'll land on your app management page. Take note of the **Application (client) ID** as this would be needed for the step 1B below.
 6. Click **Authentication**, and add new Redirect URI with type **Public client (mobile & desktop)**. Enter redirect URI in format: `msauth.<app.bundle.id>://auth`. Replace <app.bundle.id> with the **Bundle Identifier** for your application. 
 7. Hit the **Save** button in the top left, to save these updates.
+8. Click **Make this change for me** and then download the code sample for macOS
 
-## 2B: Configure your application
+## Step 3: Run the sample
 
-1. Configure your application defaults
+1. Click the Run Button in the top menu or go to Product from the menu tab and click Run.
+2. Once the sample app launches, click on the 'Call Microsoft Graph API' button to go through the sign in flow and see the results from Microsoft Graph.
 
-In the `ViewControler.swift` file, update the `kClientID` variable with your Application (client) ID.
+## How to add MSAL library into your existing Xcode project
 
-```swift
-// Update the below to your client ID you received in the portal. The below is for running the demo only
-    
-let kClientID = "Enter_the_Application_Id_here"
+## Step 1: Configure your application Info.plist
+
+Add URI scheme in the  `Info.plist`. Redirect URI scheme follows the format `msauth.[app_bundle_id]`. Make sure to substitute [app_bundle_id] with the **Bundle Identifier** for your application.
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+  <dict>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>msauth.[app_bundle_id]</string>
+    </array>
+  </dict>
+</array>
 ```
 
-In the `ViewControler.swift` file, update the `kAuthority` variable with your Azure AD and Microsoft Graph endpoints for your national cloud. For global access, use following values:
+## Step 2: Configure your application defaults
 
-```objective-c
+In your app, add the `kClientID` variable with your Application (client) ID.
+
+```swift
+// For example, you can declare a client id in this way. Below ID is just a sample.
+    	
+let kClientID = "66855f8a-60cd-445e-a9bb-8cd8eadbd3fa"
+```
+
+Add variables with your Azure AD authority and Microsoft Graph endpoint for your national cloud.
+
+```swift
 let kGraphEndpoint = "https://graph.microsoft.com/"
 let kAuthority = "https://login.microsoftonline.com/common"
 ```
 
 Other endpoints are documented [here](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the sample with AzureAD Germany, use following:
 
-```objective-c
+```swift
 let kGraphEndpoint = "https://graph.microsoft.de/"
 let kAuthority = "https://login.microsoftonline.de/common"
 ```
 
-## Step 3: Run the sample
+## Step 3: Configure Xcode project settings
 
-1. Click the Run Button in the top menu or go to Product from the menu tab and click Run.
-2. Once the sample app launches, click on the 'Call Microsoft Graph API' button to go through the sign in flow and see the results from Microsoft Graph.
+Add a new keychain group to your project **Signing & Capabilities**. The keychain group should be `com.microsoft.identity.universalstorage` on macOS.
+
+![Xcode UI displaying how the the keychain group should be set up](./images/iosintro-keychainShare.png)
 
 ## Feedback, Community Help, and Support
 
@@ -137,7 +160,7 @@ For more information see the [Code of Conduct FAQ](https://opensource.microsoft.
 
 ## Security Library
 
-This library controls how users sign-in and access services. We recommend you always take the latest version of our library in your app when possible. We use [semantic versioning](http://semver.org) so you can control the risk associated with updating your app. As an example, always downloading the latest minor version number (e.g. x.*y*.x) ensures you get the latest security and feature enhanements but our API surface remains the same. You can always see the latest version and release notes under the Releases tab of GitHub.
+This library controls how users sign-in and access services. We recommend you always take the latest version of our library in your app when possible. We use [semantic versioning](http://semver.org) so you can control the risk associated with updating your app. As an example, always downloading the latest minor version number (e.g. x.*y*.x) ensures you get the latest security and feature enhancements but our API surface remains the same. You can always see the latest version and release notes under the Releases tab of GitHub.
 
 ## Security Reporting
 

@@ -34,6 +34,7 @@ class ViewController: NSViewController, NSTextFieldDelegate, URLSessionDelegate 
     let kClientID = "2a858956-70de-42b9-b5db-d566eb1fb820"
     let kGraphEndpoint = "https://graph.microsoft.com/"
     let kAuthority = "https://login.microsoftonline.com/common"
+    let kRedirectUri = "msauth.com.microsoft.identitysample.MSALMacOS://auth"
     
     let kScopes: [String] = ["user.read"]
     
@@ -105,7 +106,9 @@ extension ViewController {
         
         let authority = try MSALAADAuthority(url: authorityURL)
         
-        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
+        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID,
+                                                                  redirectUri: kRedirectUri,
+                                                                  authority: authority)
         self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
         self.initWebViewParams()
     }
