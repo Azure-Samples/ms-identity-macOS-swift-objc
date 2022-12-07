@@ -8,6 +8,53 @@
 
 /* Begin PBXBuildFile section */
 		8BB991C88518EF3991A40197 /* Pods_MSALMacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F823B6F5F9FD8ECE38A6EF5F /* Pods_MSALMacOS.framework */; };
+		B479CC602941486400DD9773 /* libmat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B479CC5E2941483E00DD9773 /* libmat.a */; };
+		B479CC6329414A5E00DD9773 /* MSALOneDSLog.h in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6229414A5E00DD9773 /* MSALOneDSLog.h */; };
+		B479CC6629414A6E00DD9773 /* MSALOneDSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B479CC6529414A6E00DD9773 /* MSALOneDSLog.m */; };
+		B479CC9129414B8600DD9773 /* LogConfiguration.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6729414B8500DD9773 /* LogConfiguration.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9229414B8600DD9773 /* IDecorator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6829414B8500DD9773 /* IDecorator.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9329414B8600DD9773 /* Enums.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6929414B8500DD9773 /* Enums.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9429414B8600DD9773 /* ILogConfiguration.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6A29414B8500DD9773 /* ILogConfiguration.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9529414B8600DD9773 /* ILogger.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6B29414B8500DD9773 /* ILogger.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9629414B8600DD9773 /* NullObjects.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6C29414B8500DD9773 /* NullObjects.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9729414B8600DD9773 /* IAuthTokensController.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6D29414B8500DD9773 /* IAuthTokensController.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9829414B8600DD9773 /* ICdsFactory.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6E29414B8500DD9773 /* ICdsFactory.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9929414B8600DD9773 /* LogManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC6F29414B8500DD9773 /* LogManager.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9A29414B8600DD9773 /* Variant.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7029414B8500DD9773 /* Variant.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9B29414B8600DD9773 /* IAFDClient.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7129414B8500DD9773 /* IAFDClient.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9C29414B8600DD9773 /* DebugEvents.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7229414B8500DD9773 /* DebugEvents.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9D29414B8600DD9773 /* VariantType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7329414B8500DD9773 /* VariantType.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9E29414B8600DD9773 /* IHttpClient.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7429414B8500DD9773 /* IHttpClient.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CC9F29414B8600DD9773 /* ILogManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7529414B8500DD9773 /* ILogManager.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA029414B8600DD9773 /* EventProperty.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7629414B8500DD9773 /* EventProperty.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA129414B8600DD9773 /* ctmacros.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7729414B8500DD9773 /* ctmacros.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA229414B8600DD9773 /* IEventFilter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7829414B8500DD9773 /* IEventFilter.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA329414B8600DD9773 /* IDataViewerCollection.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7929414B8500DD9773 /* IDataViewerCollection.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA429414B8600DD9773 /* AggregatedMetric.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7A29414B8500DD9773 /* AggregatedMetric.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA529414B8600DD9773 /* EventProperties.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7B29414B8500DD9773 /* EventProperties.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA629414B8600DD9773 /* CorrelationVector.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7C29414B8600DD9773 /* CorrelationVector.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA729414B8600DD9773 /* IECSClient.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7D29414B8600DD9773 /* IECSClient.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA829414B8600DD9773 /* CsProtocol_types.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7E29414B8600DD9773 /* CsProtocol_types.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCA929414B8600DD9773 /* CAPIClient.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC7F29414B8600DD9773 /* CAPIClient.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCAA29414B8600DD9773 /* CommonFields.h in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8029414B8600DD9773 /* CommonFields.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCAB29414B8600DD9773 /* IDataViewer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8129414B8600DD9773 /* IDataViewer.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCAC29414B8600DD9773 /* LogManagerBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8229414B8600DD9773 /* LogManagerBase.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCAD29414B8600DD9773 /* IModule.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8329414B8600DD9773 /* IModule.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCAE29414B8600DD9773 /* LogManagerProvider.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8429414B8600DD9773 /* LogManagerProvider.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCAF29414B8600DD9773 /* IEventFilterCollection.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8529414B8600DD9773 /* IEventFilterCollection.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB029414B8600DD9773 /* mat.h in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8629414B8600DD9773 /* mat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB129414B8600DD9773 /* IDataInspector.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8729414B8600DD9773 /* IDataInspector.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB229414B8600DD9773 /* ITaskDispatcher.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8829414B8600DD9773 /* ITaskDispatcher.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB329414B8600DD9773 /* LogSessionData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8929414B8600DD9773 /* LogSessionData.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB429414B8600DD9773 /* PayloadDecoder.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8A29414B8600DD9773 /* PayloadDecoder.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB529414B8600DD9773 /* TransmitProfiles.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8B29414B8600DD9773 /* TransmitProfiles.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB629414B8600DD9773 /* CompliantByDefaultFilterApi.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8C29414B8600DD9773 /* CompliantByDefaultFilterApi.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB729414B8600DD9773 /* ISemanticContext.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8D29414B8600DD9773 /* ISemanticContext.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB829414B8600DD9773 /* IBandwidthController.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8E29414B8600DD9773 /* IBandwidthController.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCB929414B8600DD9773 /* Version.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC8F29414B8600DD9773 /* Version.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCBA29414B8600DD9773 /* IOfflineStorage.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CC9029414B8600DD9773 /* IOfflineStorage.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		B479CCBD29414C0900DD9773 /* MSALOneDSLogCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B479CCBB29414C0900DD9773 /* MSALOneDSLogCpp.cpp */; };
+		B479CCBE29414C0900DD9773 /* MSALOneDSLogCpp.hpp in Headers */ = {isa = PBXBuildFile; fileRef = B479CCBC29414C0900DD9773 /* MSALOneDSLogCpp.hpp */; };
 		DF7F84BD22EA772F0013BA63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F84BC22EA772F0013BA63 /* AppDelegate.swift */; };
 		DF7F84BF22EA772F0013BA63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F84BE22EA772F0013BA63 /* ViewController.swift */; };
 		DF7F84C122EA77300013BA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7F84C022EA77300013BA63 /* Assets.xcassets */; };
@@ -34,6 +81,54 @@
 /* Begin PBXFileReference section */
 		0DB7DCF21505D715D6C44593 /* Pods-MSALMacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSALMacOS.release.xcconfig"; path = "Target Support Files/Pods-MSALMacOS/Pods-MSALMacOS.release.xcconfig"; sourceTree = "<group>"; };
 		2A8C162F9C6809D06DFFD7D9 /* Pods-MSALMacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSALMacOS.debug.xcconfig"; path = "Target Support Files/Pods-MSALMacOS/Pods-MSALMacOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B479CC5E2941483E00DD9773 /* libmat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmat.a; path = ../../../../../../usr/local/lib/libmat.a; sourceTree = "<group>"; };
+		B479CC6229414A5E00DD9773 /* MSALOneDSLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSALOneDSLog.h; sourceTree = "<group>"; };
+		B479CC6429414A6E00DD9773 /* MSALMacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSALMacOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		B479CC6529414A6E00DD9773 /* MSALOneDSLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSALOneDSLog.m; sourceTree = "<group>"; };
+		B479CC6729414B8500DD9773 /* LogConfiguration.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = LogConfiguration.hpp; path = ../../../../../../usr/local/include/mat/LogConfiguration.hpp; sourceTree = "<group>"; };
+		B479CC6829414B8500DD9773 /* IDecorator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IDecorator.hpp; path = ../../../../../../usr/local/include/mat/IDecorator.hpp; sourceTree = "<group>"; };
+		B479CC6929414B8500DD9773 /* Enums.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Enums.hpp; path = ../../../../../../usr/local/include/mat/Enums.hpp; sourceTree = "<group>"; };
+		B479CC6A29414B8500DD9773 /* ILogConfiguration.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ILogConfiguration.hpp; path = ../../../../../../usr/local/include/mat/ILogConfiguration.hpp; sourceTree = "<group>"; };
+		B479CC6B29414B8500DD9773 /* ILogger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ILogger.hpp; path = ../../../../../../usr/local/include/mat/ILogger.hpp; sourceTree = "<group>"; };
+		B479CC6C29414B8500DD9773 /* NullObjects.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = NullObjects.hpp; path = ../../../../../../usr/local/include/mat/NullObjects.hpp; sourceTree = "<group>"; };
+		B479CC6D29414B8500DD9773 /* IAuthTokensController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IAuthTokensController.hpp; path = ../../../../../../usr/local/include/mat/IAuthTokensController.hpp; sourceTree = "<group>"; };
+		B479CC6E29414B8500DD9773 /* ICdsFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ICdsFactory.hpp; path = ../../../../../../usr/local/include/mat/ICdsFactory.hpp; sourceTree = "<group>"; };
+		B479CC6F29414B8500DD9773 /* LogManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = LogManager.hpp; path = ../../../../../../usr/local/include/mat/LogManager.hpp; sourceTree = "<group>"; };
+		B479CC7029414B8500DD9773 /* Variant.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Variant.hpp; path = ../../../../../../usr/local/include/mat/Variant.hpp; sourceTree = "<group>"; };
+		B479CC7129414B8500DD9773 /* IAFDClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IAFDClient.hpp; path = ../../../../../../usr/local/include/mat/IAFDClient.hpp; sourceTree = "<group>"; };
+		B479CC7229414B8500DD9773 /* DebugEvents.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = DebugEvents.hpp; path = ../../../../../../usr/local/include/mat/DebugEvents.hpp; sourceTree = "<group>"; };
+		B479CC7329414B8500DD9773 /* VariantType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = VariantType.hpp; path = ../../../../../../usr/local/include/mat/VariantType.hpp; sourceTree = "<group>"; };
+		B479CC7429414B8500DD9773 /* IHttpClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IHttpClient.hpp; path = ../../../../../../usr/local/include/mat/IHttpClient.hpp; sourceTree = "<group>"; };
+		B479CC7529414B8500DD9773 /* ILogManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ILogManager.hpp; path = ../../../../../../usr/local/include/mat/ILogManager.hpp; sourceTree = "<group>"; };
+		B479CC7629414B8500DD9773 /* EventProperty.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = EventProperty.hpp; path = ../../../../../../usr/local/include/mat/EventProperty.hpp; sourceTree = "<group>"; };
+		B479CC7729414B8500DD9773 /* ctmacros.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ctmacros.hpp; path = ../../../../../../usr/local/include/mat/ctmacros.hpp; sourceTree = "<group>"; };
+		B479CC7829414B8500DD9773 /* IEventFilter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IEventFilter.hpp; path = ../../../../../../usr/local/include/mat/IEventFilter.hpp; sourceTree = "<group>"; };
+		B479CC7929414B8500DD9773 /* IDataViewerCollection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IDataViewerCollection.hpp; path = ../../../../../../usr/local/include/mat/IDataViewerCollection.hpp; sourceTree = "<group>"; };
+		B479CC7A29414B8500DD9773 /* AggregatedMetric.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = AggregatedMetric.hpp; path = ../../../../../../usr/local/include/mat/AggregatedMetric.hpp; sourceTree = "<group>"; };
+		B479CC7B29414B8500DD9773 /* EventProperties.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = EventProperties.hpp; path = ../../../../../../usr/local/include/mat/EventProperties.hpp; sourceTree = "<group>"; };
+		B479CC7C29414B8600DD9773 /* CorrelationVector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = CorrelationVector.hpp; path = ../../../../../../usr/local/include/mat/CorrelationVector.hpp; sourceTree = "<group>"; };
+		B479CC7D29414B8600DD9773 /* IECSClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IECSClient.hpp; path = ../../../../../../usr/local/include/mat/IECSClient.hpp; sourceTree = "<group>"; };
+		B479CC7E29414B8600DD9773 /* CsProtocol_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = CsProtocol_types.hpp; path = ../../../../../../usr/local/include/mat/CsProtocol_types.hpp; sourceTree = "<group>"; };
+		B479CC7F29414B8600DD9773 /* CAPIClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = CAPIClient.hpp; path = ../../../../../../usr/local/include/mat/CAPIClient.hpp; sourceTree = "<group>"; };
+		B479CC8029414B8600DD9773 /* CommonFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonFields.h; path = ../../../../../../usr/local/include/mat/CommonFields.h; sourceTree = "<group>"; };
+		B479CC8129414B8600DD9773 /* IDataViewer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IDataViewer.hpp; path = ../../../../../../usr/local/include/mat/IDataViewer.hpp; sourceTree = "<group>"; };
+		B479CC8229414B8600DD9773 /* LogManagerBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = LogManagerBase.hpp; path = ../../../../../../usr/local/include/mat/LogManagerBase.hpp; sourceTree = "<group>"; };
+		B479CC8329414B8600DD9773 /* IModule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IModule.hpp; path = ../../../../../../usr/local/include/mat/IModule.hpp; sourceTree = "<group>"; };
+		B479CC8429414B8600DD9773 /* LogManagerProvider.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = LogManagerProvider.hpp; path = ../../../../../../usr/local/include/mat/LogManagerProvider.hpp; sourceTree = "<group>"; };
+		B479CC8529414B8600DD9773 /* IEventFilterCollection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IEventFilterCollection.hpp; path = ../../../../../../usr/local/include/mat/IEventFilterCollection.hpp; sourceTree = "<group>"; };
+		B479CC8629414B8600DD9773 /* mat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mat.h; path = ../../../../../../usr/local/include/mat/mat.h; sourceTree = "<group>"; };
+		B479CC8729414B8600DD9773 /* IDataInspector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IDataInspector.hpp; path = ../../../../../../usr/local/include/mat/IDataInspector.hpp; sourceTree = "<group>"; };
+		B479CC8829414B8600DD9773 /* ITaskDispatcher.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ITaskDispatcher.hpp; path = ../../../../../../usr/local/include/mat/ITaskDispatcher.hpp; sourceTree = "<group>"; };
+		B479CC8929414B8600DD9773 /* LogSessionData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = LogSessionData.hpp; path = ../../../../../../usr/local/include/mat/LogSessionData.hpp; sourceTree = "<group>"; };
+		B479CC8A29414B8600DD9773 /* PayloadDecoder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = PayloadDecoder.hpp; path = ../../../../../../usr/local/include/mat/PayloadDecoder.hpp; sourceTree = "<group>"; };
+		B479CC8B29414B8600DD9773 /* TransmitProfiles.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = TransmitProfiles.hpp; path = ../../../../../../usr/local/include/mat/TransmitProfiles.hpp; sourceTree = "<group>"; };
+		B479CC8C29414B8600DD9773 /* CompliantByDefaultFilterApi.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = CompliantByDefaultFilterApi.hpp; path = ../../../../../../usr/local/include/mat/CompliantByDefaultFilterApi.hpp; sourceTree = "<group>"; };
+		B479CC8D29414B8600DD9773 /* ISemanticContext.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ISemanticContext.hpp; path = ../../../../../../usr/local/include/mat/ISemanticContext.hpp; sourceTree = "<group>"; };
+		B479CC8E29414B8600DD9773 /* IBandwidthController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IBandwidthController.hpp; path = ../../../../../../usr/local/include/mat/IBandwidthController.hpp; sourceTree = "<group>"; };
+		B479CC8F29414B8600DD9773 /* Version.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Version.hpp; path = ../../../../../../usr/local/include/mat/Version.hpp; sourceTree = "<group>"; };
+		B479CC9029414B8600DD9773 /* IOfflineStorage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = IOfflineStorage.hpp; path = ../../../../../../usr/local/include/mat/IOfflineStorage.hpp; sourceTree = "<group>"; };
+		B479CCBB29414C0900DD9773 /* MSALOneDSLogCpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MSALOneDSLogCpp.cpp; sourceTree = "<group>"; };
+		B479CCBC29414C0900DD9773 /* MSALOneDSLogCpp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MSALOneDSLogCpp.hpp; sourceTree = "<group>"; };
 		DF7F84B922EA772F0013BA63 /* MSALMacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSALMacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7F84BC22EA772F0013BA63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF7F84BE22EA772F0013BA63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BB991C88518EF3991A40197 /* Pods_MSALMacOS.framework in Frameworks */,
+				B479CC602941486400DD9773 /* libmat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +180,7 @@
 		C59A55362EC75B6788638529 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B479CC5E2941483E00DD9773 /* libmat.a */,
 				F823B6F5F9FD8ECE38A6EF5F /* Pods_MSALMacOS.framework */,
 			);
 			name = Frameworks;
@@ -92,6 +189,48 @@
 		DF7F84B022EA772F0013BA63 = {
 			isa = PBXGroup;
 			children = (
+				B479CC7A29414B8500DD9773 /* AggregatedMetric.hpp */,
+				B479CC7F29414B8600DD9773 /* CAPIClient.hpp */,
+				B479CC8029414B8600DD9773 /* CommonFields.h */,
+				B479CC8C29414B8600DD9773 /* CompliantByDefaultFilterApi.hpp */,
+				B479CC7C29414B8600DD9773 /* CorrelationVector.hpp */,
+				B479CC7E29414B8600DD9773 /* CsProtocol_types.hpp */,
+				B479CC7729414B8500DD9773 /* ctmacros.hpp */,
+				B479CC7229414B8500DD9773 /* DebugEvents.hpp */,
+				B479CC6929414B8500DD9773 /* Enums.hpp */,
+				B479CC7B29414B8500DD9773 /* EventProperties.hpp */,
+				B479CC7629414B8500DD9773 /* EventProperty.hpp */,
+				B479CC7129414B8500DD9773 /* IAFDClient.hpp */,
+				B479CC6D29414B8500DD9773 /* IAuthTokensController.hpp */,
+				B479CC8E29414B8600DD9773 /* IBandwidthController.hpp */,
+				B479CC6E29414B8500DD9773 /* ICdsFactory.hpp */,
+				B479CC8729414B8600DD9773 /* IDataInspector.hpp */,
+				B479CC8129414B8600DD9773 /* IDataViewer.hpp */,
+				B479CC7929414B8500DD9773 /* IDataViewerCollection.hpp */,
+				B479CC6829414B8500DD9773 /* IDecorator.hpp */,
+				B479CC7D29414B8600DD9773 /* IECSClient.hpp */,
+				B479CC7829414B8500DD9773 /* IEventFilter.hpp */,
+				B479CC8529414B8600DD9773 /* IEventFilterCollection.hpp */,
+				B479CC7429414B8500DD9773 /* IHttpClient.hpp */,
+				B479CC6A29414B8500DD9773 /* ILogConfiguration.hpp */,
+				B479CC6B29414B8500DD9773 /* ILogger.hpp */,
+				B479CC7529414B8500DD9773 /* ILogManager.hpp */,
+				B479CC8329414B8600DD9773 /* IModule.hpp */,
+				B479CC9029414B8600DD9773 /* IOfflineStorage.hpp */,
+				B479CC8D29414B8600DD9773 /* ISemanticContext.hpp */,
+				B479CC8829414B8600DD9773 /* ITaskDispatcher.hpp */,
+				B479CC6729414B8500DD9773 /* LogConfiguration.hpp */,
+				B479CC6F29414B8500DD9773 /* LogManager.hpp */,
+				B479CC8229414B8600DD9773 /* LogManagerBase.hpp */,
+				B479CC8429414B8600DD9773 /* LogManagerProvider.hpp */,
+				B479CC8929414B8600DD9773 /* LogSessionData.hpp */,
+				B479CC8629414B8600DD9773 /* mat.h */,
+				B479CC6C29414B8500DD9773 /* NullObjects.hpp */,
+				B479CC8A29414B8600DD9773 /* PayloadDecoder.hpp */,
+				B479CC8B29414B8600DD9773 /* TransmitProfiles.hpp */,
+				B479CC7029414B8500DD9773 /* Variant.hpp */,
+				B479CC7329414B8500DD9773 /* VariantType.hpp */,
+				B479CC8F29414B8600DD9773 /* Version.hpp */,
 				DF7F84BB22EA772F0013BA63 /* MSALMacOS */,
 				DF7F84BA22EA772F0013BA63 /* Products */,
 				1B35B523E78C9A12231B12B9 /* Pods */,
@@ -118,11 +257,70 @@
 				DF7F84C222EA77300013BA63 /* Main.storyboard */,
 				DF7F84C522EA77300013BA63 /* Info.plist */,
 				DF7F84C622EA77300013BA63 /* MSALMacOS.entitlements */,
+				B479CC6229414A5E00DD9773 /* MSALOneDSLog.h */,
+				B479CC6529414A6E00DD9773 /* MSALOneDSLog.m */,
+				B479CC6429414A6E00DD9773 /* MSALMacOS-Bridging-Header.h */,
+				B479CCBB29414C0900DD9773 /* MSALOneDSLogCpp.cpp */,
+				B479CCBC29414C0900DD9773 /* MSALOneDSLogCpp.hpp */,
 			);
 			path = MSALMacOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B479CC612941488900DD9773 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B479CC9129414B8600DD9773 /* LogConfiguration.hpp in Headers */,
+				B479CC9229414B8600DD9773 /* IDecorator.hpp in Headers */,
+				B479CC9329414B8600DD9773 /* Enums.hpp in Headers */,
+				B479CC9429414B8600DD9773 /* ILogConfiguration.hpp in Headers */,
+				B479CC9529414B8600DD9773 /* ILogger.hpp in Headers */,
+				B479CC9629414B8600DD9773 /* NullObjects.hpp in Headers */,
+				B479CC9729414B8600DD9773 /* IAuthTokensController.hpp in Headers */,
+				B479CC9829414B8600DD9773 /* ICdsFactory.hpp in Headers */,
+				B479CC9929414B8600DD9773 /* LogManager.hpp in Headers */,
+				B479CC9A29414B8600DD9773 /* Variant.hpp in Headers */,
+				B479CC9B29414B8600DD9773 /* IAFDClient.hpp in Headers */,
+				B479CC9C29414B8600DD9773 /* DebugEvents.hpp in Headers */,
+				B479CC9D29414B8600DD9773 /* VariantType.hpp in Headers */,
+				B479CC9E29414B8600DD9773 /* IHttpClient.hpp in Headers */,
+				B479CC9F29414B8600DD9773 /* ILogManager.hpp in Headers */,
+				B479CCA029414B8600DD9773 /* EventProperty.hpp in Headers */,
+				B479CCA129414B8600DD9773 /* ctmacros.hpp in Headers */,
+				B479CCA229414B8600DD9773 /* IEventFilter.hpp in Headers */,
+				B479CCA329414B8600DD9773 /* IDataViewerCollection.hpp in Headers */,
+				B479CCA429414B8600DD9773 /* AggregatedMetric.hpp in Headers */,
+				B479CCA529414B8600DD9773 /* EventProperties.hpp in Headers */,
+				B479CCA629414B8600DD9773 /* CorrelationVector.hpp in Headers */,
+				B479CCA729414B8600DD9773 /* IECSClient.hpp in Headers */,
+				B479CCA829414B8600DD9773 /* CsProtocol_types.hpp in Headers */,
+				B479CCA929414B8600DD9773 /* CAPIClient.hpp in Headers */,
+				B479CCAA29414B8600DD9773 /* CommonFields.h in Headers */,
+				B479CCAB29414B8600DD9773 /* IDataViewer.hpp in Headers */,
+				B479CCAC29414B8600DD9773 /* LogManagerBase.hpp in Headers */,
+				B479CCAD29414B8600DD9773 /* IModule.hpp in Headers */,
+				B479CCAE29414B8600DD9773 /* LogManagerProvider.hpp in Headers */,
+				B479CCAF29414B8600DD9773 /* IEventFilterCollection.hpp in Headers */,
+				B479CCB029414B8600DD9773 /* mat.h in Headers */,
+				B479CCB129414B8600DD9773 /* IDataInspector.hpp in Headers */,
+				B479CCB229414B8600DD9773 /* ITaskDispatcher.hpp in Headers */,
+				B479CCB329414B8600DD9773 /* LogSessionData.hpp in Headers */,
+				B479CCB429414B8600DD9773 /* PayloadDecoder.hpp in Headers */,
+				B479CCBE29414C0900DD9773 /* MSALOneDSLogCpp.hpp in Headers */,
+				B479CCB529414B8600DD9773 /* TransmitProfiles.hpp in Headers */,
+				B479CCB629414B8600DD9773 /* CompliantByDefaultFilterApi.hpp in Headers */,
+				B479CCB729414B8600DD9773 /* ISemanticContext.hpp in Headers */,
+				B479CCB829414B8600DD9773 /* IBandwidthController.hpp in Headers */,
+				B479CCB929414B8600DD9773 /* Version.hpp in Headers */,
+				B479CCBA29414B8600DD9773 /* IOfflineStorage.hpp in Headers */,
+				B479CC6329414A5E00DD9773 /* MSALOneDSLog.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		DF7F84B822EA772F0013BA63 /* MSALMacOS */ = {
@@ -130,10 +328,12 @@
 			buildConfigurationList = DF7F84DF22EA77310013BA63 /* Build configuration list for PBXNativeTarget "MSALMacOS" */;
 			buildPhases = (
 				C0EE9C2E9ECD705A0F921CFC /* [CP] Check Pods Manifest.lock */,
+				B479CC612941488900DD9773 /* Headers */,
 				DF7F84B522EA772F0013BA63 /* Sources */,
 				DF7F84B622EA772F0013BA63 /* Frameworks */,
 				DF7F84B722EA772F0013BA63 /* Resources */,
 				3EBDB9DDA938B8967A835FA2 /* [CP] Embed Pods Frameworks */,
+				B41433A6293F38B9008EB545 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -192,6 +392,7 @@
 				TargetAttributes = {
 					DF7F84B822EA772F0013BA63 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1410;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 0;
@@ -272,6 +473,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MSALMacOS/Pods-MSALMacOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B41433A6293F38B9008EB545 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"hello World!..\"\necho $PATH\nexport PATH=/opt/homebrew/bin:$PATH\necho $PATH\nBASEDIR=\"${SRCROOT}\"\necho \"location: ${BASEDIR}\"\nexport MATSDK_INSTALL_DIR=${SRCROOT}\ncd Submodules && sh build.sh clean release && cd ..\n";
+		};
 		C0EE9C2E9ECD705A0F921CFC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,7 +520,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF7F84BF22EA772F0013BA63 /* ViewController.swift in Sources */,
+				B479CC6629414A6E00DD9773 /* MSALOneDSLog.m in Sources */,
 				DF7F84BD22EA772F0013BA63 /* AppDelegate.swift in Sources */,
+				B479CCBD29414C0900DD9773 /* MSALOneDSLogCpp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,17 +687,26 @@
 			baseConfigurationReference = 2A8C162F9C6809D06DFFD7D9 /* Pods-MSALMacOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MSALMacOS/MSALMacOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UBF8T346G9;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MSAL/MSAL.framework/Headers\"",
+					"/usr/local/include/mat/**",
+				);
 				INFOPLIST_FILE = MSALMacOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "/usr/local/lib/**";
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.identitysample.MSALMacOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MSALMacOS/MSALMacOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -487,17 +716,25 @@
 			baseConfigurationReference = 0DB7DCF21505D715D6C44593 /* Pods-MSALMacOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MSALMacOS/MSALMacOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = UBF8T346G9;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MSAL/MSAL.framework/Headers\"",
+					"/usr/local/include/mat/**",
+				);
 				INFOPLIST_FILE = MSALMacOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "/usr/local/lib/**";
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.identitysample.MSALMacOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MSALMacOS/MSALMacOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
