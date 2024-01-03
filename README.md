@@ -13,7 +13,7 @@ service: Microsoft Graph
 
 ![Build Badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/523/badge)
 
-| [Library](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [API Reference](https://azuread.github.io/docs/objc/) | [Support](README.md#feedback-community-help-and-support)
+| [Library](https://github.com/Microsoft Entra/microsoft-authentication-library-for-objc) | [API Reference](https://Microsoft Entra.github.io/docs/objc/) | [Support](README.md#feedback-community-help-and-support)
 | --- | --- | --- |
 
 The MSAL for macOS library gives your app the ability to begin using the [Microsoft identity platform](https://aka.ms/aaddev) by supporting [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) and [Microsoft Accounts](https://account.microsoft.com/) in a converged experience using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycle your application should experience, including:
@@ -76,7 +76,7 @@ let kClientID = "2a858956-70de-42b9-b5db-d566eb1fb820"
 This app comes pre-configured for testing.  If you would like to register your own app, please follow the steps below.
 
 To Register an app:
-1. Sign in to the [Microsoft admin center](https://portal.azure.com) using either a work or school account.
+1. Sign in to the [Microsoft Entra admin center](https://portal.azure.com) using either a work or school account.
 2. In the left-hand navigation pane, select the **Microsoft Entra ID** blade, and then select **App registrations**.
 3. Click on the **New registration** button at the top left of the page.
 4. On the app registration page,
@@ -128,7 +128,7 @@ let kGraphEndpoint = "https://graph.microsoft.com/"
 let kAuthority = "https://login.microsoftonline.com/common"
 ```
 
-Other endpoints are documented [here](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the sample with AzureAD Germany, use following:
+Other endpoints are documented [here](https://docs.microsoft.com/en-us/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the sample with Microsoft Entra Germany, use following:
 
 ```swift
 let kGraphEndpoint = "https://graph.microsoft.de/"
