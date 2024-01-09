@@ -2,8 +2,6 @@
 page_type: sample
 languages:
 - swift
-products:
-- microsoft-entra-id
 client:
 - macOS Desktop App
 service: Microsoft Graph
