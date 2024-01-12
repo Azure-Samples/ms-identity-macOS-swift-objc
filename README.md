@@ -74,7 +74,7 @@ let kClientID = "2a858956-70de-42b9-b5db-d566eb1fb820"
 This app comes pre-configured for testing.  If you would like to register your own app, please follow the steps below.
 
 To Register an app:
-1. Sign in to the [Microsoft Entra admin center](https://portal.azure.com) using either a work or school account.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) using either a work or school account.
 2. In the left-hand navigation pane, select the **Microsoft Entra ID** blade, and then select **App registrations**.
 3. Click on the **New registration** button at the top left of the page.
 4. On the app registration page,
