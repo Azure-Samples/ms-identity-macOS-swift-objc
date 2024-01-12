@@ -11,7 +11,7 @@ service: Microsoft Graph
 
 ![Build Badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/523/badge)
 
-| [Library](https://github.com/Microsoft Entra/microsoft-authentication-library-for-objc) | [API Reference](https://Microsoft Entra.github.io/docs/objc/) | [Support](README.md#feedback-community-help-and-support)
+| [Library](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [API Reference](https://azuread.github.io/docs/objc/) | [Support](README.md#feedback-community-help-and-support)
 | --- | --- | --- |
 
 The MSAL for macOS library gives your app the ability to begin using the [Microsoft identity platform](https://aka.ms/aaddev) by supporting [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) and [Microsoft Accounts](https://account.microsoft.com/) in a converged experience using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycle your application should experience, including:
